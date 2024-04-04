@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    $(document).ready(function(){
+        $("#parent_idx").click(getCategoryList);
+    });
+    function getCategoryList(){
+        $.ajax({
+            type : "post",
+            url : "/item/regist",
+            data : ,
+            success:function();
+            alert('성공');
+        });
+    }
+</script>
+<body>
+<form action="/regist_proc" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>상품명</td>
+            <td><input type="text" name="itemname"></td>
+        </tr>
+        <tr>
+            <td>상품종류1</td>
+            <td>
+                <select name="parent_idx" id="parent_idx">
+                    <option value=null>--상품선택1--</option>
+                    <th:block th:each="lm:${clist}">
+                        <option th:if="${#strings.length(lm.category_code)}==2" th:value="${lm.category_code}">[[${lm.item_type}]]</option>
+                    </th:block>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>상품종류2</td>
+            <td>
+                <select class="form-select" name="category_code" onchange="handleOnChange(this)">
+                    <option class="mt-2" value=null>--상품선택2--</option>
+                    <th:block th:each="lm:${clist}">
+                        <option th:if="${#strings.length(lm.category_code)}==4" th:value="${lm.category_code}">[[${lm.item_type}]]</option>
+                    </th:block>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>생산국가</td>
+            <td><input type="text" name="itemcountry"></td>
+        </tr>
+        <tr>
+            <td>상품재료</td>
+            <td><input type="text" name="itemingred"></td>
+        </tr>
+        <tr>
+            <td>상품가격</td>
+            <td><input type="text" name="itemprice"></td>
+        </tr>
+        <tr>
+            <td>상품설명</td>
+            <td><input type="text" name="itemcontent"></td>
+        </tr>
+        <tr>
+            <td>상품사진</td>
+            <td>
+                <input type="file" name="original1">
+                <input type="file" name="original2">
+                <input type="file" name="original3">
+            </td>
+        </tr>
+        <tr>
+            <td>상품재고</td>
+            <td><input type="text" name="iteminven"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="등록"></td>
+        </tr>
+    </table>
+</form>
+<!--<script>
+    $(document).ready(function(){
+        $("#parent_idx").click(getcategorysource);
+    });
+    function getcategorysource() {
+        $.ajax({
+            type:"get",
+            url:"/ex01",
+            success: function (res) {
+                console.log("성공", res)
+            },
+            error: function (err) {
+                console.log("실패", err);
+            },
+        })
+    }
+</script>-->
+</body>
+</html>

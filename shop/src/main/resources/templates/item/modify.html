@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/item/modify_proc" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>제품번호</td>
+            <td><input type="hidden" name="itemidx" th:value="${mvalue.itemidx}">[[${mvalue.itemidx}]]</td>
+        </tr>
+        <tr>
+            <td>상품명</td>
+            <td><input type="text" name="itemname" th:value="${mvalue.itemname}">[[${mvalue.itemname}]]</td>
+        </tr>
+        <tr>
+            <td>삼품종류1</td>
+            <td><input type="text" name="itemtype1" th:value="${mvalue.itemtype1}">[[${mvalue.itemtype1}]]</td>
+        </tr>
+        <tr>
+            <td>상품종류2</td>
+            <td><input type="text" name="itemtype2" th:value="${mvalue.itemtype2}">[[${mvalue.itemtype2}]]</td>
+        </tr>
+        <tr>
+            <td>생산국가</td>
+            <td><input type="text" name="itemcountry" th:value="${mvalue.itemcountry}">[[${mvalue.itemcountry}]]</td>
+        </tr>
+        <tr>
+            <td>상품재료</td>
+            <td><input type="text" name="itemingred" th:value="${mvalue.itemingred}">[[${mvalue.itemingred}]]</td>
+        </tr>
+        <tr>
+            <td>상품가격</td>
+            <td><input type="text" name="itemprice" th:value="${mvalue.itemprice}">[[${mvalue.itemprice}]]</td>
+        </tr>
+        <tr>
+            <td>상품설명</td>
+            <td><input type="text" name="itemcontent" th:value="${mvalue.itemcontent}">[[${mvalue.itemcontent}]]</td>
+        </tr>
+        <tr>
+            <td>상품사진</td>
+            <td>
+                <input type="file" name="original1"><input type="checkbox" name="ckb1" value="del">
+                <input type="file" name="original2"><input type="checkbox" name="ckb2" value="del">
+                <input type="file" name="original3"><input type="checkbox" name="ckb3" value="del">
+            </td>
+        </tr>
+        <tr>
+            <td>상품재고</td>
+            <td><input type="text" name="iteminven" th:value="${mvalue.iteminven}"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="수정"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

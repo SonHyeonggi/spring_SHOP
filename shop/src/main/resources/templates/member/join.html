@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/join_proc" method="post">
+    <table>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" name="userid"></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type="password" name="pwd"></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td>
+                <input type="radio" name="gender" value="m">남자
+                <input type="radio" name="gender" value="f">여자
+            </td>
+        </tr>
+        <tr>
+            <td>생년월일</td>
+            <td>
+                <input type="date" name="birthday" min="1900-01-01" max="2022-12-31">
+            </td>
+        </tr>
+        <tr>
+            <td>휴대폰번호</td>
+            <td><input type="text" name="phonenum"></td>
+        </tr>
+        <tr>
+            <td>주소</td>
+            <td>
+                <input type="text" name="addressnum"><br>
+                <input type="text" name="address1"><br>
+                <input type="text" name="address2"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td>
+                <input type="text" name="email">@
+                <select name="site">
+                    <option value=null>---사이트 선택---</option>
+                    <option value="naver.com">네이버(naver.com)</option>
+                    <option value="daum.net">다음(daum.net)</option>
+                    <option value="gmail.com">구글(gmail.com)</option>
+                    <option value="facebookmail.com">페이스북(facebookmail.com)</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="hidden" name="author" value="member">
+                <input type="submit" value="가입하기">
+                <a th:href="@{/member/login}">로그인 화면으로</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

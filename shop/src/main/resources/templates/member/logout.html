@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>로그아웃 하시겠습니까?</td>
+        <td>
+            <button type="button" th:onclick="|location.href='@{/member/login}'|">네</button>
+            <button type="button" th:onclick="|location.href='@{redirect:/shop/home}'|">아니오</button>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

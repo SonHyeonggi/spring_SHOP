@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>제품번호</td>
+                <td>[[${dview.itemidx}]]</td>
+            </tr>
+            <tr>
+                <td>상품명</td>
+                <td>[[${dview.itemname}]]</td>
+            </tr>
+            <tr>
+                <td>상품종류1</td>
+                <td>[[${dview.itemtype1}]]</td>
+            </tr>
+            <tr>
+                <td>상품종류2</td>
+                <td>[[${dview.itemtype2}]]</td>
+            </tr>
+            <tr>
+                <td>생산국가</td>
+                <td>[[${dview.itemcountry}]]</td>
+            </tr>
+            <tr>
+                <td>생산재료</td>
+                <td>[[${dview.itemingred}]]</td>
+            </tr>
+            <tr>
+                <td>상품가격</td>
+                <td>[[${dview.itemprice}]]</td>
+            </tr>
+            <tr>
+                <td>상품설명</td>
+                <td>[[${dview.itemcontent}]]</td>
+            </tr>
+            <tr>
+                <td>상품사진</td>
+                <td>
+                    <img th:src="@{/download(files=${files.file1})}" alt="이미지1">
+                    <img th:src="@{/download(files=${files.file2})}" alt="이미지2">
+                    <img th:src="@{/download(files=${files.file3})}" alt="이미지3">
+                </td>
+            </tr>
+            <tr>
+                <td>상품재고</td>
+                <td>[[${dview.iteminven}]]</td>
+            </tr>
+            <tr>
+                <td>상품등록일</td>
+                <td>[[${dview.regdate}]]</td>
+            </tr>
+            <tr>
+                <td Colspan="2">
+                    <a th:href="@{/item/delete(itemidx=${dview.itemidx})}">삭제하기</a>
+                    <a th:href="@{/item/modify(itemidx=${dview.itemidx})}">수정하기</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

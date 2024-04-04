@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/modify_proc" method="post">
+    <table>
+        <tr>
+            <td>번호</td>
+            <td><input type="hidden" name="idx" th:value="${mlist.idx}">[[${mlist.idx}]]</td>
+        </tr>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" name="userid" th:value="${mlist.userid}"></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type="text" name="pwd" th:value="${mlist.pwd}"></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="username" th:value="${mlist.username}"></td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td>
+                <input type="radio" name="gender" value="m" th:checked="${mlist.gender}=='m'">남자
+                <input type="radio" name="gender" value="f" th:checked="${mlist.gender}=='f'">여자
+            </td>
+        </tr>
+        <tr>
+            <td>생년월일</td>
+            <td><input type="date" name="birthday" th:value="${mlist.birthday}"></td>
+        </tr>
+        <tr>
+            <td>휴대폰번호</td>
+            <td><input type="text" name="phonenum" th:value="${mlist.phonenum}"></td>
+        </tr>
+        <tr>
+            <td>주소</td>
+            <td>
+                <input type="text" name="addressnum" th:value="${mlist.addressnum}">
+                <input type="text" name="address1" th:value="${mlist.address1}">
+                <input type="text" name="address2" th:value="${mlist.address2}">
+            </td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td>
+                <input type="text" name="email" th:value="${mlist.email}">@
+                <select name="site">
+                    <option value=null>---사이트 선택---</option>
+                    <option value="naver.com" th:selected="${mlist.site}=='naver.com'">네이버(naver.com)</option>
+                    <option value="daum.net" th:selected="${mlist.site}=='daum.net'">다음(daum.net)</option>
+                    <option value="gmail.com" th:selected="${mlist.site}=='gmail.com'">구글(gmail.com)</option>
+                    <option value="facebookmail.com" th:selected="${mlist.site}=='facebookmail.com'">페이스북(facebookmail.com)</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>권한</td>
+            <td>
+                <input type="radio" name="author" value="member" th:checked="${mlist.author}=='member'">회원
+                <input type="radio" name="author" value="admin" th:checked="${mlist.author}=='admin'">관리자
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="수정">
+                <a th:href="@{/member/view(idx=${mlist.idx})}">돌아가기</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <td>상품번호</td>
+            <td>상품명</td>
+            <td>상품종류1</td>
+            <td>생산국가</td>
+            <td>썸네일</td>
+            <td>상품가격</td>
+            <td>상품보기</td>
+        </tr>
+        <tr th:each="li:${mem_list}">
+            <td>[[${li.itemidx}]]</td>
+            <td>[[${li.itemname}]]</td>
+            <td></td>
+            <td>[[${li.itemcountry}]]</td>
+            <td><img th:src="@{/thumbnail(itemidx=${li.itemidx})}"></td>
+            <td>[[${li.itemprice}]]</td>
+            <td><a th:href="@{/item/view(itemidx=${li.itemidx})}">제품보기</a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <select name="selectType">
+                    <option value="itemname">상품명</option>
+                    <<!--option value="itemtype1">상품종류1</option>-->
+                    <option value="itemcountry">생산국가</option>
+                </select>
+                <input type="text" name="searchKeyword">
+                <button type="submit">검색</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a th:if="${nowPage != startPage}" th:href="@{/member/list(page=${startPage-1}, searchKeyword=${param.searchKeyword})}">⏪</a>
+                <a th:if="${nowPage != startPage}" th:href="@{/member/list(page=${nowPage-2}, searchKeyword=${param.searchKeyword})}">◀</a>
+                <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+                    <a th:if="${page != nowPage}" th:href="@{/member/list(page = ${page -1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
+                    <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+                </th:block>
+                <a th:if="${nowPage != endPage}" th:href="@{/member/list(page=${nowPage}, searchKeyword = ${param.searchKeyword})}">▶</a>
+                <a th:if="${nowPage != endPage}" th:href="@{/member/list(page=${endPage-1}, searchKeyword = ${param.searchKeyword})}">⏩</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <td>번호</td>
+            <td>[[${vlist.idx}]]</td>
+        </tr>
+        <tr>
+            <td>아이디</td>
+            <td>[[${vlist.userid}]]</td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td>[[${vlist.pwd}]]</td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td>[[${vlist.username}]]</td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td>
+                <a th:if="${vlist.gender == 'm'}">남자</a>
+                <a th:if="${vlist.gender == 'f'}">여자</a>
+            </td>
+        </tr>
+        <tr>
+            <td>생년월일</td>
+            <td>[[${vlist.birthday}]]</td>
+        </tr>
+        <tr>
+            <td>전화번호</td>
+            <td>[[${vlist.phonenum}]]</td>
+        </tr>
+        <tr>
+            <td>주소</td>
+            <td>[[${vlist.address}]]</td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td>[[${vlist.email}]]</td>
+        </tr>
+        <tr>
+            <td>등급</td>
+            <td>
+                <a th:if="${vlist.author == 'member'}">회원</a>
+                <a th:if="${vlist.author == 'admin'}">관리자</a>
+            </td>
+        </tr>
+        <tr>
+            <td>등록일</td>
+            <td>[[${vlist.regdate}]]</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a th:href="@{/member/modify(idx=${vlist.idx})}">수정하기</a>
+                <a th:href="@{/member/delete(idx=${vlist.idx})}">삭제하기</a>
+                <a th:href="@{/member/list}">회원목록으로</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

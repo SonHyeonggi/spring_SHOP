@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/member/list}" method="get">
+    <table>
+        <tr>
+            <td>번호</td>
+            <td>아이디</td>
+            <td>이름</td>
+            <td>등급</td>
+        </tr>
+        <tr th:each="li : ${mem_list}">
+            <td><a th:href="@{/member/view(idx=${li.idx})}">[[${li.idx}]]</a></td>
+            <td>[[${li.userid}]]</td>
+            <td>[[${li.username}]]</td>
+            <td>[[${li.author}]]</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <select name="selectType">
+                    <option value="userid">아이디</option>
+                    <option value="username">이름</option>
+                </select>
+                <input type="text" name="searchKeyword">
+                <button type="submit">검색</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a th:href="@{/member/join}">회원가입 창으로</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a th:if="${nowPage != startPage}" th:href="@{/member/list(page=${startPage-1}, searchKeyword=${param.searchKeyword})}">⏪</a>
+                <a th:if="${nowPage != startPage}" th:href="@{/member/list(page=${nowPage-2}, searchKeyword=${param.searchKeyword})}">◀</a>
+                <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+                    <a th:if="${page != nowPage}" th:href="@{/member/list(page = ${page -1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
+                    <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+                </th:block>
+                <a th:if="${nowPage != endPage}" th:href="@{/member/list(page=${nowPage}, searchKeyword = ${param.searchKeyword})}">▶</a>
+                <a th:if="${nowPage != endPage}" th:href="@{/member/list(page=${endPage-1}, searchKeyword = ${param.searchKeyword})}">⏩</a>
+            </td>
+        </tr>
+        <tr>
+        <td colspan="2"><a th:href="@{/item/list}">상품목록으로</a></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
