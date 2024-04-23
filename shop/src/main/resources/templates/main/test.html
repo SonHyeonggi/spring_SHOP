@@ -21,10 +21,13 @@
                 <a class="nav-link" href="#">홈 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/member/login}">로그인</a>
+                <a class="nav-link" href="#">와인</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/member/join}">회원가입</a>
+                <a class="nav-link" href="#">위스키</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">맥주</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -36,11 +39,11 @@
 
 <!-- 메인 컨텐츠 -->
 <div class="container mt-4">
-    <h2>상품 종류</h2>
+    <h2>인기 상품</h2>
     <div class="row">
         <div class="col-lg-4 mb-4">
-            <div class="card" style="height : 350px">
-                <img th:src="@{/image/home/wine.jpg}" style="height : 180px" class="card-img-top" alt="와인">
+            <div class="card">
+                <img th:src="wine.jpg" class="card-img-top" alt="와인">
                 <div class="card-body">
                     <h5 class="card-title">와인</h5>
                     <p class="card-text">다양한 와인을 즐겨보세요.</p>
@@ -49,8 +52,8 @@
             </div>
         </div>
         <div class="col-lg-4 mb-4">
-            <div class="card" style="height : 350px">
-                <img th:src="@{/image/home/wiskey.jpg}" style="height : 180px" class="card-img-top" alt="위스키">
+            <div class="card">
+                <img src="whiskey.jpg" class="card-img-top" alt="위스키">
                 <div class="card-body">
                     <h5 class="card-title">위스키</h5>
                     <p class="card-text">고급 위스키로 특별한 순간을 만들어보세요.</p>
@@ -59,8 +62,8 @@
             </div>
         </div>
         <div class="col-lg-4 mb-4">
-            <div class="card" style="height : 350px">
-                <img th:src="@{/image/home/beer.jpg}" style="height : 180px" class="card-img-top" alt="맥주">
+            <div class="card">
+                <img src="beer.jpg" class="card-img-top" alt="맥주">
                 <div class="card-body">
                     <h5 class="card-title">맥주</h5>
                     <p class="card-text">시원한 맥주 한 잔 어떠세요?</p>

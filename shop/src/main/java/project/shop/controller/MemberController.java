@@ -33,7 +33,7 @@ public class MemberController {
     public String join_proc(MemberDto memberDto) {
 
         memberService.join_proc(memberDto);
-        return "redirect:/member/list";
+        return "redirect:/main/home";
     }
 
     @GetMapping("/member/login")
@@ -78,5 +78,4 @@ public class MemberController {
         memberService.modify_proc(memberDto);
         return "redirect:/member/view?idx="+memberDto.getIdx();
     }
-
 }

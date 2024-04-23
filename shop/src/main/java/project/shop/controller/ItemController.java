@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import project.shop.dto.CategoryDto;
 import project.shop.dto.ItemDto;
@@ -37,6 +38,16 @@ public class ItemController {
 
         model.addAttribute("clist", categoryDtoList);
         return "/item/regist";
+    }
+
+    @GetMapping("/layouts/layout")
+    public String layout() {
+        return"/layouts/layout";
+    }
+    @GetMapping("/item/resist")
+    @ResponseBody
+    public void getCategoryList() {
+
     }
 
     @GetMapping("/item/category")
@@ -73,22 +84,22 @@ public class ItemController {
         itemService.downloadthumb(itemidx, request, response);
     return "/item/list";
     }
-  /*  @GetMapping("/item/view")
+    @GetMapping("/item/view")
     public String view(Model model, ItemDto itemDto) {
         model.addAttribute("dview", itemService.view(itemDto));
         model.addAttribute("files", itemService.FilesDto(itemDto));
         return"/item/view";
     }
 
-    @GetMapping("/item/delete")
-    public String delete(ItemDto itemDto) {
-        itemService.delete(itemDto);
-        return "redirect:/item/list";
-    }
-
     @GetMapping("/download")
     public void download(@RequestParam("files")String files, HttpServletResponse response, HttpServletRequest request) {
         itemService.download(files, request, response);
+    }
+
+     /*   @GetMapping("/item/delete")
+    public String delete(ItemDto itemDto) {
+        itemService.delete(itemDto);
+        return "redirect:/item/list";
     }
 
     @GetMapping("/item/modify")

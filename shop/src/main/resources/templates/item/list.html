@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      layout:fragment="Content">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<br>
+<h2 align="center">상품목록</h2>
+<br>
 <form>
-    <table>
+    <table border="1" align="center" style="text-align : center;">
         <tr>
             <td>상품번호</td>
             <td>상품명</td>
@@ -21,7 +27,7 @@
             <td>[[${li.itemname}]]</td>
             <td></td>
             <td>[[${li.itemcountry}]]</td>
-            <td><img th:src="@{/thumbnail(itemidx=${li.itemidx})}"></td>
+            <td><img th:src="@{/thumbnail(itemidx=${li.itemidx})}" style="height : 150px;"></td>
             <td>[[${li.itemprice}]]</td>
             <td><a th:href="@{/item/view(itemidx=${li.itemidx})}">제품보기</a></td>
         </tr>

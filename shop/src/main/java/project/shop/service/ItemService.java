@@ -22,10 +22,10 @@ public interface ItemService {
     public String downloadthumb(Long itemidx, HttpServletRequest request, HttpServletResponse response);
     public void category_proc(CategoryDto categoryDto);
     public List<CategoryDto> category_list();
-    /*    public ItemDto view(ItemDto itemDto);
-    public String download(String itemname, HttpServletRequest request, HttpServletResponse response);
+    public ItemDto view(ItemDto itemDto);
     public FilesDto FilesDto(ItemDto itemDto);
-    public void delete(ItemDto itemDto);
+    public String download(String itemname, HttpServletRequest request, HttpServletResponse response);
+    /*public void delete(ItemDto itemDto);
     public ItemDto modify(ItemDto itemDto);
     public void modify_proc(ItemDto itemDto, String ckb1, String ckb2, String ckb3) throws IOException;*/
 }

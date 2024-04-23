@@ -90,7 +90,7 @@ public class ItemEntity {
         this.itemingred = itemingred;
         this.itemprice = itemprice;
         this.itemcontent = itemcontent;
-/*        this.filename1 = filename1;
+/*      this.filename1 = filename1;
         this.original1 = original1;
         this.filename2 = filename2;
         this.original2 = original2;
@@ -113,7 +113,7 @@ public class ItemEntity {
                 .build();
     }
 
-/*    public FilesDto filesDto() {
+   /* public FilesDto filesDto() {
         return FilesDto.builder()
                 .file1(filename1)
                 .file2(filename2)

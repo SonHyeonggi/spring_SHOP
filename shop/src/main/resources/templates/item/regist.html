@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      layout:fragment="Content">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,17 +13,25 @@
     });
     function getCategoryList(){
         $.ajax({
-            type : "post",
+            type : "get",
             url : "/item/regist",
-            data : ,
-            success:function();
-            alert('성공');
-        });
+            data : {data:category},
+            dataType : 'json',
+            success : function() {
+                alert("성공");
+            },
+            error : function() {
+                alert("실패");
+            }
+        })
     }
 </script>
 <body>
+<br>
+<h2 align="center">상품등록</h2>
+<br>
 <form action="/regist_proc" method="post" enctype="multipart/form-data">
-    <table>
+    <table border="1" align="center">
         <tr>
             <td>상품명</td>
             <td><input type="text" name="itemname"></td>
@@ -80,22 +91,5 @@
         </tr>
     </table>
 </form>
-<!--<script>
-    $(document).ready(function(){
-        $("#parent_idx").click(getcategorysource);
-    });
-    function getcategorysource() {
-        $.ajax({
-            type:"get",
-            url:"/ex01",
-            success: function (res) {
-                console.log("성공", res)
-            },
-            error: function (err) {
-                console.log("실패", err);
-            },
-        })
-    }
-</script>-->
 </body>
 </html>

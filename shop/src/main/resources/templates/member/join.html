@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      layout:fragment="Content"
+>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<br>
+<h2 align="center">회원등록</h2>
+<br>
 <form action="/join_proc" method="post">
-    <table>
+    <table border="1" align="center">
         <tr>
             <td>아이디</td>
             <td><input type="text" name="userid"></td>

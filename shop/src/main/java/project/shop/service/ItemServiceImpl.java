@@ -227,7 +227,7 @@ private final CategoryRepository categoryRepository;
 
     }
 
-    /*@Override
+    @Override
     public ItemDto view(ItemDto itemDto) {
         ItemEntity itemEntity = itemRepository.findById(itemDto.getItemidx()).orElse(null);
         return itemEntity.toDto();
@@ -236,27 +236,7 @@ private final CategoryRepository categoryRepository;
     @Override
     public FilesDto FilesDto(ItemDto itemDto) {
         ItemEntity itemEntity = itemRepository.findById(itemDto.getItemidx()).orElse(null);
-        return itemEntity.getFilesEntities().get().filesDto();
-    }
-
-    @Override
-    public void delete(ItemDto itemDto) {
-        ItemEntity user = itemRepository.findById(itemDto.getItemidx()).orElse(null);
-        String file1 = user.getFilesEntities().get().getFilename1();
-        String file2 = user.getFilesEntities().get().getFilename2();
-        String file3 = user.getFilesEntities().get().getFilename3();
-        String projactPath = "C:\\Users\\YJ\\Desktop\\spring\\shop\\shop\\src\\main\\resources\\static\\image\\";
-        File deleteFile1 = new File(projactPath + file1);
-        File deleteFile2 = new File(projactPath + file2);
-        File deleteFile3 = new File(projactPath + file3);
-        File deleteFilethumb = new File(projactPath + "thumbnail\\" + "s_" + file1);
-        if(deleteFile1.exists() || deleteFile2.exists() || deleteFile3.exists() || deleteFilethumb.exists()) {
-            deleteFile1.delete();
-            deleteFile2.delete();
-            deleteFile3.delete();
-            deleteFilethumb.delete();
-        }
-        itemRepository.delete(user);
+        return itemEntity.getFilesEntities().get(0).filesDto();
     }
 
     @Override
@@ -328,6 +308,26 @@ private final CategoryRepository categoryRepository;
         }
         return filename;
 
+    }
+/*
+    @Override
+    public void delete(ItemDto itemDto) {
+        ItemEntity itemEntity = itemRepository.findById(itemDto.getItemidx()).orElse(null);
+        String file1 = itemEntity.getFilesEntities().get().getFilename1();
+        String file2 = itemEntity.getFilesEntities().get().getFilename2();
+        String file3 = itemEntity.getFilesEntities().get().getFilename3();
+        String projactPath = "C:\\Users\\YJ\\Desktop\\spring\\shop\\shop\\src\\main\\resources\\static\\image\\";
+        File deleteFile1 = new File(projactPath + file1);
+        File deleteFile2 = new File(projactPath + file2);
+        File deleteFile3 = new File(projactPath + file3);
+        File deleteFilethumb = new File(projactPath + "thumbnail\\" + "s_" + file1);
+        if(deleteFile1.exists() || deleteFile2.exists() || deleteFile3.exists() || deleteFilethumb.exists()) {
+            deleteFile1.delete();
+            deleteFile2.delete();
+            deleteFile3.delete();
+            deleteFilethumb.delete();
+        }
+        itemRepository.delete(user);
     }
 
     @Override

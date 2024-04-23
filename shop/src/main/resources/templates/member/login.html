@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      layout:fragment="Content"
+>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<br>
+<br>
 <form action="/login_proc" method="post">
-    <table>
+    <h2 align="center">로그인</h2>
+    <br>
+    <table border="1" align="center">
         <tr>
             <td>아이디</td>
             <td><input type="text" name="userid"></td>
+            <td rowspan="2"><input type="submit" value="로그인" style="height:50px;"></td>
         </tr>
         <tr>
             <td>비밀번호</td>
             <td><input type="text" name="pwd"></td>
         </tr>
         <tr>
-            <td colspan="2">
-                <input type="submit" value="로그인">
-                <a th:href="@{/member/join}">회원가입 화면으로</a>
+            <td colspan="3" align="right">
+                <a th:href="@{/member/join}">회원가입 화면으로</a>&nbsp;
             </td>
         </tr>
     </table>
 </form>
+</br>
 </body>
 </html>
